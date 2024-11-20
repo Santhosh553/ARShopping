@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "decorex-a80d5"
-  }
+    "default": "arshopping-aa9ea"
+  },
+  "targets": {},
+  "etags": {}
 }

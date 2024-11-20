@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "arshopping",
     "public": "public",
     "ignore": [
       "firebase.json",
