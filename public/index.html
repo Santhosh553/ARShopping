@@ -10,8 +10,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./sign-style.css">
-  <script src="./sign.js"></script>
   <title>Virtual AR Object Placement Tool</title>
   <script type="module">
 
@@ -57,17 +55,157 @@
 </head>
 
 <body>
+  <!-- Hero Section -->
   <main class="signIn">
-    <div>
-      <img src="https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/furniture_large.png?v=1680859895699">
+  <header>
+    <div class="content">
+      <h1>Welcome to AR Shopping</h1>
+      <p>Step into the future of shopping! Use augmented reality to explore, interact, and personalize your shopping experience like never before.</p>
+      <button class="cta-btn" class="signIn-btn">Sign In & Start Shopping</button>
     </div>
-    <button type="button" class="btn btn-primary btn-lg">Sign in</button>
-    <div class="credit">
-      Developed by
-      Students of
-      M.H.S.S.C.E
-    </div>
-  </main>
-</body>
+    <!-- 3D Hero Object -->
+    <img src="https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/furniture_large.png?v=1680859895699" alt="3D Furniture" class="hero-3d">
+  </header>
 
+  <!-- Features Section -->
+  <section class="features-section">
+    <h2>Why You'll Love AR Shopping</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <img src="https://via.placeholder.com/100" alt="Immersive Experience">
+        <h3>Immersive Experience</h3>
+        <p>See how products look in your space with realistic AR visuals.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://via.placeholder.com/100" alt="Personalization">
+        <h3>Personalized Shopping</h3>
+        <p>Get tailored product recommendations based on your preferences.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://via.placeholder.com/100" alt="Convenience">
+        <h3>Convenient</h3>
+        <p>Shop anytime, anywhere with just a click.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 AR Shopping. All rights reserved.</p>
+  </footer>
+</main>
+
+</body>
+</html>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  overflow-x: hidden;
+  color: #333;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(to bottom, #007bff, #0056b3);
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+header .content {
+  z-index: 2;
+  text-align: left;
+  max-width: 600px;
+}
+header h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+header p {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+header .cta-btn {
+  display: inline-block;
+  background: #ffc107;
+  color: #333;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+header .cta-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+}
+header .hero-3d {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  max-width: 50%;
+  z-index: 1;
+}
+.features-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f8f9fa;
+}
+.features-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+.features-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.feature-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+.feature-card img {
+  max-width: 100px;
+  margin-bottom: 15px;
+}
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.feature-card p {
+  font-size: 1rem;
+  color: #666;
+}
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #333;
+  color: #fff;
+}
+footer p {
+  font-size: 0.9rem;
+}
+
+
+</style>
 </html>
