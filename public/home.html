@@ -20,48 +20,248 @@
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
 </head>
 
+<style>
+ body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #ffffff);
+      color: #333;
+    }
+
+    /* Header Styling */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #007bff;
+      color: #fff;
+      padding: 20px 50px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0 20px;
+    }
+
+    .logout-btn {
+      padding: 10px 20px;
+      background-color: #ffc107;
+      color: #333;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      background-color: #ffcd39;
+    }
+
+    /* Object Selection Section */
+    .selection-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px auto;
+      gap: 20px;
+      padding: 10px;
+    }
+
+    .selection-item {
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #333;
+      border: 2px solid #ddd;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .selection-item:hover,
+    .selection-item.active {
+      background: #007bff;
+      color: #fff;
+      border-color: #007bff;
+    }
+
+    /* Model Cards Section */
+    .model-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 40px 50px;
+      display: none;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    model-viewer {
+      height: 250px;
+      width: 100%;
+      background: linear-gradient(to top, #e0f7fa, #ffffff);
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 15px 0;
+    }
+
+    /* Footer Styling */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+
 <body>
+  <!-- Header Section -->
   <header>
-    <img src="https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/furniture.png?v=1679464248352" />
-    <div style="font-weight: bold;">Virtual AR Object Placement Tool</div>
+    <img src="https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/furniture.png?v=1679464248352" alt="Logo">
+    <div class="header-title">Virtual AR Object Placement Tool</div>
+    <a href="logout.html" class="logout-btn">Logout</a>
   </header>
+
+  <!-- Object Selection Section -->
+  <div class="selection-container">
+    <div class="selection-item active" data-category="all">All</div>
+    <div class="selection-item" data-category="chair">Chair</div>
+    <div class="selection-item" data-category="sofa">Sofa</div>
+    <div class="selection-item" data-category="table">Table</div>
+    <div class="selection-item" data-category="floor">Floor</div>
+    <div class="selection-item" data-category="plant">Plant</div>
+  </div>
+
+  <!-- Model Viewer Section -->
   <main>
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Select
-      </button>
-      <ul class="dropdown-menu">
-        <li id="chair"><a class="dropdown-item" href="#">Chair</a></li>
-        <li id="sofa"><a class="dropdown-item" href="#">Sofa</a></li>
-        <li id="table"><a class="dropdown-item" href="#">Table</a></li>
-        <li id="floor"><a class="dropdown-item" href="#">Floor</a></li>
-        <li id="plant"><a class="dropdown-item" href="#">Plant</a></li>
-      </ul>
-    </div>
-    <div class="model-container">
+    <div class="model-container" data-category="chair">
       <div class="card">
         <model-viewer
           src="https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/office_chair.glb?v=1679465307574"
-          shadow-intensity="1" ar camera-controls touch-action="pan-y" ar-modes="webxr" alt="#">
+          shadow-intensity="1" ar camera-controls touch-action="pan-y" ar-modes="webxr" alt="Ergonomic Office Chair">
         </model-viewer>
-        <div class="card-body p-0 mt-2">
-          <h5 class="card-title">ergonomic office chair</h5>
+        <div class="card-body">
+          <h5 class="card-title">Ergonomic Office Chair</h5>
         </div>
       </div>
       <div class="card">
         <model-viewer
           src="https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/ofiice-chair-2.glb?v=1679471498876"
-          shadow-intensity="1" ar camera-controls touch-action="pan-y" ar-modes="webxr" alt="#">
+          shadow-intensity="1" ar camera-controls touch-action="pan-y" ar-modes="webxr" alt="Cushioned Office Chair">
         </model-viewer>
-        <div class="card-body p-0 mt-2">
-          <h5 class="card-title">cushioned office chair</h5>
+        <div class="card-body">
+          <h5 class="card-title">Cushioned Office Chair</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="model-container" data-category="sofa">
+      <div class="card">
+        <model-viewer
+          src="https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/sofa.glb"
+          shadow-intensity="1" ar camera-controls touch-action="pan-y" ar-modes="webxr" alt="Modern Sofa">
+        </model-viewer>
+        <div class="card-body">
+          <h5 class="card-title">Modern Sofa</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="model-container" data-category="table">
+      <div class="card">
+        <model-viewer
+          src="https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/table.glb"
+          shadow-intensity="1" ar camera-controls touch-action="pan-y" ar-modes="webxr" alt="Modern Table">
+        </model-viewer>
+        <div class="card-body">
+          <h5 class="card-title">Modern Table</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floor Category -->
+    <div class="model-container" data-category="floor">
+      <div class="card">
+        <model-viewer
+          src="https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/floor.glb"
+          shadow-intensity="1" ar camera-controls touch-action="pan-y" ar-modes="webxr" alt="Wooden Floor">
+        </model-viewer>
+        <div class="card-body">
+          <h5 class="card-title">Wooden Floor</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plant Category -->
+    <div class="model-container" data-category="plant">
+      <div class="card">
+        <model-viewer
+          src="https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/plant.glb"
+          shadow-intensity="1" ar camera-controls touch-action="pan-y" ar-modes="webxr" alt="Green Plant">
+        </model-viewer>
+        <div class="card-body">
+          <h5 class="card-title">Green Plant</h5>
         </div>
       </div>
     </div>
   </main>
+
+  <!-- Footer Section -->
   <footer>
     <p>&copy; 2024 AR Shopping. All rights reserved.</p>
   </footer>
+
+  <!-- JavaScript for Category Filtering -->
+  <script>
+    const selectionItems = document.querySelectorAll('.selection-item');
+    const modelContainers = document.querySelectorAll('.model-container');
+
+    selectionItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Remove active class from all
+        selectionItems.forEach(i => i.classList.remove('active'));
+
+        // Add active class to the clicked item
+        item.classList.add('active');
+
+        const category = item.getAttribute('data-category');
+
+        // Show relevant models and hide others
+        modelContainers.forEach(container => {
+          if (category === 'all' || container.getAttribute('data-category') === category) {
+            container.style.display = 'block';
+          } else {
+            container.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
