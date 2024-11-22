@@ -1,14 +1,14 @@
-const container = document.querySelector(".model-container");
+const containerS = document.querySelector(".model-container");
 
-const plant = document.querySelector("#plant");
+const sofa = document.querySelector("#dress");
 
-plant.addEventListener("click",()=>{
+sofa.addEventListener("click",()=>{
   
-  container.innerHTML = "";
-  const titles = ['money plant','dwarf cavendish']
-  const modelUrl = ['https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/free_pothos_potted_plant_-_money_plant.glb?v=1679468824610',
-                   'https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/stylized_flower_pot.glb?v=1680861056260'];
+  containerS.innerHTML = "";
+
+  const titles = ['Modern Dress','Traditional Dress','Party Dress']
   
+  const modelUrl = ['https://cdn.glitch.global/20295d36-6cda-4038-995f-29efdfeded6a/3D%20Dress.glb?v=1732247312459'];
   for(let i = 0 ; i < modelUrl.length; i++){
     
   const card = document.createElement("div");
