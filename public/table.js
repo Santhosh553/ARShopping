@@ -7,7 +7,9 @@ table.addEventListener("click",()=>{
   containerT.innerHTML = "";
   const titles = ['vintage study desk','dining table']
   const modelUrl = ['https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/table.glb?v=1679469070644',
-                    'https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/a_table.glb?v=1680861199606'];
+                  'https://cdn.glitch.me/20295d36-6cda-4038-995f-29efdfeded6a/loft_dining_table.glb?v=1732369447106',
+                'https://cdn.glitch.global/20295d36-6cda-4038-995f-29efdfeded6a/table.glb?v=1732369517496',
+              'https://cdn.glitch.global/20295d36-6cda-4038-995f-29efdfeded6a/glass_table.glb?v=1732369888389'];
   for(let i = 0 ; i < modelUrl.length; i++){
     
   const card = document.createElement("div");

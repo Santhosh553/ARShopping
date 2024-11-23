@@ -6,9 +6,11 @@ sofa.addEventListener("click",()=>{
   
   containerS.innerHTML = "";
 
-  const titles = ['Modern Dress','Traditional Dress','Party Dress']
+  const titles = ['Modern Dress','White Shirt','Flannel Shirt']
   
-  const modelUrl = ['https://cdn.glitch.global/20295d36-6cda-4038-995f-29efdfeded6a/3D%20Dress.glb?v=1732247312459'];
+  const modelUrl = ['https://cdn.glitch.global/20295d36-6cda-4038-995f-29efdfeded6a/3D%20Dress.glb?v=1732247312459',
+    'https://cdn.glitch.global/20295d36-6cda-4038-995f-29efdfeded6a/t_shirt.glb?v=1732370184608'
+  ];
   for(let i = 0 ; i < modelUrl.length; i++){
     
   const card = document.createElement("div");
