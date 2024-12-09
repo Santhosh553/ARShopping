@@ -48,8 +48,9 @@ header img {
   justify-content: center;
   align-items: center;
   margin: 30px auto;
-  gap: 20px;
+  gap: 10px;
   padding: 10px;
+  flex-wrap: wrap;
 }
 
 .selection-item {
@@ -73,7 +74,7 @@ header img {
 /* Model Cards Section */
 .model-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);  /* 3 cards per row */
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   padding: 40px 50px;
 }
@@ -111,4 +112,66 @@ footer {
   text-align: center;
   padding: 10px;
   font-size: 0.8rem;
+}
+
+/* Mobile View Styling */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  .header-title {
+    font-size: 1.2rem;
+  }
+
+  .selection-container {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .selection-item {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .model-container {
+    grid-template-columns: 1fr 1fr;  /* 2 cards per row */
+    padding: 20px;
+  }
+
+  .card {
+    margin-bottom: 20px;
+  }
+
+  .logout-btn {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 1rem;
+  }
+
+  .selection-item {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+
+  .model-container {
+    grid-template-columns: 1fr;  /* 1 card per row */
+    padding: 10px;
+  }
+
+  .logout-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    margin-top: 10px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
 }
