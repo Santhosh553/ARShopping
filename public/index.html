@@ -32,25 +32,26 @@
     const analytics = getAnalytics(app);
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
-    const signIn = document.querySelector('.signIn');
+    const signInBtn = document.querySelector('.signIn-btn');
 
-    signIn.addEventListener('click', function () {
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
-          const user = result.user;
-          window.location.assign('./home.html');
-
-        }).catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          const email = error.customData.email;
-          const credential = GoogleAuthProvider.credentialFromError(error);
-
-          console.error(error);
-        });
+signInBtn.addEventListener('click', function () {
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      window.location.assign('./home.html');
     })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.customData.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
+
+      console.error(error);
+    });
+});
+
   </script>
 </head>
 
@@ -61,7 +62,7 @@
     <div class="content">
       <h1>Welcome to AR Shopping</h1>
       <p>Step into the future of shopping! Use augmented reality to explore, interact, and personalize your shopping experience like never before.</p>
-      <button class="cta-btn" class="signIn-btn">Sign In & Start Shopping</button>
+      <button class="cta-btn signIn-btn">Sign In & Start Shopping</button>
     </div>
     <!-- 3D Hero Object -->
     <img src="https://cdn.glitch.global/7ede3348-1731-4eff-be67-e4d544bd7626/furniture_large.png?v=1680859895699" alt="3D Furniture" class="hero-3d">
@@ -72,17 +73,17 @@
     <h2>Why You'll Love AR Shopping</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <img src="https://via.placeholder.com/100" alt="Immersive Experience">
+        <img src="assets/Immersive.webp" alt="Immersive Experience">
         <h3>Immersive Experience</h3>
         <p>See how products look in your space with realistic AR visuals.</p>
       </div>
       <div class="feature-card">
-        <img src="https://via.placeholder.com/100" alt="Personalization">
+        <img src="assets/shopping.jpeg" alt="Personalization">
         <h3>Personalized Shopping</h3>
         <p>Get tailored product recommendations based on your preferences.</p>
       </div>
       <div class="feature-card">
-        <img src="https://via.placeholder.com/100" alt="Convenience">
+        <img src="assets/convinent.jpeg" alt="Convenience">
         <h3>Convenient</h3>
         <p>Shop anytime, anywhere with just a click.</p>
       </div>
@@ -176,7 +177,7 @@ header .hero-3d {
   border-radius: 15px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   width: 280px;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -185,9 +186,14 @@ header .hero-3d {
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
 }
 .feature-card img {
-  max-width: 100px;
-  margin-bottom: 15px;
+  width: 100%; /* Use full width of the card */
+  height: 200px; /* Increase height for better visibility */
+  border-radius: 12px; /* Smooth edges for a clean look */
+  object-fit: cover; /* Maintain aspect ratio and cover the space */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow to draw attention */
+  margin-bottom: 20px; /* Add space below the image */
 }
+
 .feature-card h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
@@ -205,7 +211,53 @@ footer {
 footer p {
   font-size: 0.9rem;
 }
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    padding: 40px 20px;
+  }
 
+  header .content {
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  header p {
+    font-size: 1.2rem;
+  }
+
+  header .cta-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  header .hero-3d {
+    position: static;
+    max-width: 100%;
+    margin: 20px auto;
+  }
+
+  .features-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .feature-card {
+    width: 100%;
+    padding: 20px;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+}
 
 </style>
 </html>
